@@ -121,24 +121,24 @@ h1
 
 #accueil
 {
-  background-image: url("../img2/flatbis.jpg");
+  background-image: url("../img/flatbis.jpg");
   z-index: 4;
 }
 
 #jeux
 {
-  background-image: url("../img2/flat2bis.jpg");
+  background-image: url("../img/flat2bis.jpg");
   z-index: 3;
  }
 
 #salons
 {
-  background-image: url("../img2/flat3bis.jpg");
+  background-image: url("../img/flat3bis.jpg");
   z-index: 2;
  }
 
 #contact
 {
-  background-image: url("../img2/flat4bis.jpg");
+  background-image: url("../img/flat4bis.jpg");
   z-index: 1;
  }
