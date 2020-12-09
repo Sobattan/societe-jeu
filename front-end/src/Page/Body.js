@@ -42,11 +42,18 @@ class Body extends Component{
         .catch(err=>{console.log(err);});
     }
 
+    leaveSalon(){
+        //this.socket.emit('disconnection');
+        this.socket.disconnect(true);
+        this.setState({socket : undefined, msgList : [], idSalon : ""})
+    }
+
     joinSalon(idSalon){
         this.socket = io();
         console.log(idSalon);
         this.socket.on('cantjoin',()=>{
-            this.socket.emit('disconnection');
+            this.socket.disconnect(true);
+            //this.socket.emit('disconnection');
             this.setState({socket : undefined,idSalon : ""});
         })
         this.socket.on('joined',()=>{
@@ -102,6 +109,7 @@ class Body extends Component{
                 </ul>
                 <input type="text" value={this.state.sendMessage} onChange={evt => this.updateInputValue(evt)}/>
                 <button onClick={()=>this.sendMessage()}>Envoyer</button>
+                <button onClick={()=>this.leaveSalon()}>Déconnexion</button>
             </div>)
         }
         return (<div>{noConnected}</div>);
