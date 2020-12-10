@@ -35,7 +35,7 @@
 }
 
 .main{
-    background: darkblue;
+    background: rgb(67, 124, 144);
     height:100%;
     width : 100%;
 }
@@ -65,7 +65,7 @@
     to {
         border-radius: 0%;
         width: 300vw;
-        background-color: darkblue;
+        background-color: rgb(67, 124, 144);
         height: 300vw;
         position: absolute;
     }
