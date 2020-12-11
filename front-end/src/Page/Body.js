@@ -1,33 +1,24 @@
 import React, { Component } from 'react';
 import "./Body.css";
+import LoginSelector from "../Components/LoginSelector";
 class Body extends Component{
     constructor(props){
         super(props);
         this.state = {
-            clicked : false,
-            login : "",
-            main : false
+            login : ""
         }
     }
-
-    validatePseudo(){
-        this.setState({clicked : true});  
-    }
-
-    loginChange(newLogin){
+    loginSet(newLogin){
         this.setState({login : newLogin});
     }
 
     render(){
         let ret = undefined;
-        if(this.state.main){
+        if(this.state.login !== ""){
             ret =(<div className="body"><div className="main"></div></div>);
         }
         else{
-            ret =(<div className="body">
-                <input className={`${(this.state.login!=="" && this.state.clicked)?"inputTrans":""}`} type="text" value={this.state.login} onChange={(evt)=>this.loginChange(evt.target.value)}/>
-                <button className={`button ${(this.state.clicked && this.state.login!=="")?"transOut":""} ${(this.state.clicked && this.state.login==="")?"wrongLogin":""}`} onClick={()=>this.validatePseudo()} onAnimationEnd={() => {let main = this.state.login !=="";this.setState({clicked : false, main : main})}}> Jouer </button>
-                </div>);
+            ret =(<LoginSelector saveLogin={(login)=>this.loginSet(login)}/>);
         }
         return (<div>
                 {ret}
