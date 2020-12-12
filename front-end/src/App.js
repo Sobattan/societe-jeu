@@ -2,6 +2,8 @@ import './App.css';
 import React, { Component } from 'react';
 import LoginSelector from "./Components/LoginSelector";
 import Header from './Components/Header';
+import {Route,Switch, withRouter} from 'react-router-dom';
+import Home from './Components/Home';
 
 class App extends Component{
   constructor(props){
@@ -14,10 +16,22 @@ class App extends Component{
       this.setState({login : newLogin});
   }
 
+  blueHome(){
+    return (<Home color="blue"/>);
+  }
+
+  blackHome(){
+    return (<Home color="black"/>);
+  }
+
   render(){
       let ret = undefined;
       if(this.state.login !== ""){
-          ret =(<div className="body"><div className="main"></div></div>);
+          ret =(<Switch>
+                  <Route path='/test' component={this.blueHome}/>
+                  <Route path='/default' component={this.blackHome}/>
+                  <Route path='/' component={this.blackHome}/>
+                </Switch> );
       }
       else{
           ret =(<LoginSelector saveLogin={(login)=>this.loginSet(login)}/>);
@@ -30,4 +44,4 @@ class App extends Component{
   }
 }
 
-export default App;
+export default withRouter(App);
