@@ -20,6 +20,7 @@ class Salon{
     removePlayer(id){
         //gérer la libération d'une place dans la partie
         this.players = this.players.filter(ele=>ele.id !== id)
+        this.game.removePlayer(id);
     }
 
     getPlayerCount(){

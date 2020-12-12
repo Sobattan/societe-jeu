@@ -16,17 +16,33 @@ class Game{
         console.log(this.players);
         console.log(this.players.filter(ele=>ele.id==undefined).length);
         if(this.players.filter(ele=>ele.id==undefined).length > 0){
-            let index = this.players.findFirst(ele=>ele.id==undefined);
+            let index = this.players.findIndex(ele=>ele.id==undefined);
             this.players[index].id=id;
             this.players[index].socket=socket;
             this.players[index].pseudo=pseudo;
         }
         //sinon on ajoute nouveau joueur si il reste de la place
         else if(this.players.filter(ele=>ele.id!=undefined).length < this.nbPlayerMax){
-            this.players.push({id : id, socket : socket, pseudo:pseudo});
+            this.players.push({position : this.players.length+1,id : id, socket : socket, pseudo:pseudo});
         }
         console.log(this.players);
         console.log("Fin Game.addPlayer");
+    }
+
+    removePlayer(idPlayer){
+        console.log("Remove player");
+        console.log(this.players.length);
+        this.players = this.players.map(ele=>{
+            if(ele.id === idPlayer){
+                ele.id=undefined;
+                ele.socket=undefined;
+                ele.pseudo=undefined;
+            }
+            return ele;
+        });
+        console.log(this.players.length);
+        console.log(this.players);
+        console.log("Fin remove player");
     }
 
     getMaxPlayer(){
