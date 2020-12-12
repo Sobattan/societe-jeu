@@ -1,20 +1,24 @@
 const {Player} = require("../Player/Player");
 
 class Salon{
-    constructor(id){
+    constructor(id, game){
         this.id = id;
         this.players = [];
+        this.game = game;
     }
 
     addPlayer(id,name, socket){
         if(this.players.filter(ele=>ele.id===id).length === 0 && this.players.length < this.getMaxPlayer()){
             this.players.push(new Player(id,name, socket));
+            console.log(name);
+            this.game.addPlayer(id,name,socket);
             return true;
         }
         return false;
     }
 
     removePlayer(id){
+        //gérer la libération d'une place dans la partie
         this.players = this.players.filter(ele=>ele.id !== id)
     }
 
@@ -26,7 +30,12 @@ class Salon{
         return this.id;
     }
 
+    getGame(){
+        return this.game;
+    }
+
     getMaxPlayer(){
+        //return this.game.getMaxPlayer();
         return 4;
     }
 

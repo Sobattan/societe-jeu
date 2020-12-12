@@ -28,7 +28,7 @@ app.get('/salons', function (req, res) {
 });
 
 app.post('/salon', function (req, res) {
-    let idSalon = salonManager.createNewSalon();
+    let idSalon = salonManager.createNewGame();
     console.log(idSalon);
     res.status(200).json({idSalon: idSalon});
 });
@@ -38,6 +38,7 @@ io.on('connection',socket => {
         let hasJoin = salonManager.joinSalon(pseudo,socket.id,socket,idSalon);
         if(hasJoin){
             socket.emit("joined");
+            salonManager.getSalon(idSalon).getGame().initEvent(socket);
             socket.on('sendMsg', (msg) => {
                 salonManager.getSalon(idSalon).sendMessage(socket.id,msg);
             })
@@ -55,4 +56,4 @@ io.on('connection',socket => {
 })
 
 
-http.listen(8080, function () { });
+http.listen(8080, function () { console.log("server running") });

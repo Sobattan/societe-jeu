@@ -1,5 +1,6 @@
 const {Salon} = require("./Salon");
 const { v4: uuidv4 } = require('uuid');
+const {Game} = require("../Game/Game");
 class SalonManager{
     constructor(){
         this.salonList = [];
@@ -36,8 +37,12 @@ class SalonManager{
         console.log("delete success");
     }
 
-    createNewSalon(){
-        let salon = new Salon(uuidv4());
+    createNewGame(){
+        return this.createNewSalon(new Game(4));
+    }
+
+    createNewSalon(game){
+        let salon = new Salon(uuidv4(), game);
         this.salonList.push(salon);
         setTimeout(()=>{this.deleteSalonIfEmpty(salon)}, 100000);
         return salon.getId();

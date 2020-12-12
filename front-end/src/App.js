@@ -4,16 +4,22 @@ import LoginSelector from "./Components/LoginSelector";
 import Header from './Components/Header';
 import {Route,Switch, withRouter} from 'react-router-dom';
 import Home from './Components/Home';
+import Game from './Base/GameComponent';
 
 class App extends Component{
   constructor(props){
       super(props);
       this.state = {
-          login : ""
+        login : ""
       }
+      this.game = this.game.bind(this);
   }
   loginSet(newLogin){
       this.setState({login : newLogin});
+  }
+
+  game(){
+    return (<Game color="black" {...this.props} login={this.state.login}/>)
   }
 
   blueHome(){
@@ -28,9 +34,9 @@ class App extends Component{
       let ret = undefined;
       if(this.state.login !== ""){
           ret =(<Switch>
-                  <Route path='/test' component={this.blueHome}/>
-                  <Route path='/default' component={this.blackHome}/>
-                  <Route path='/' component={this.blackHome}/>
+                  <Route path='/test' render={this.blueHome}/>
+                  <Route path='/default' render={this.blackHome}/>
+                  <Route path='/' render={this.game}/>
                 </Switch> );
       }
       else{
