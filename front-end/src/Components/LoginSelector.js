@@ -7,6 +7,13 @@ class LoginSelector extends Component{
             login : "",
             clicked : false
         }
+        this.submitInputValue = this.submitInputValue.bind(this);
+    }
+
+    submitInputValue(evt){
+        if(evt.key === "Enter"){
+            this.validatePseudo();
+        }
     }
 
     validatePseudo(){
@@ -35,7 +42,7 @@ class LoginSelector extends Component{
     render(){
         return (
         <div className="loginSelectorComponent">
-            <input className={`${(this.state.login!=="" && this.state.clicked)?"inputDisappear":""}`} type="text" value={this.state.login} onChange={(evt)=>this.loginChange(evt.target.value)}/>
+            <input className={`${(this.state.login!=="" && this.state.clicked)?"inputDisappear":""}`} type="text" value={this.state.login} onChange={(evt)=>this.loginChange(evt.target.value)} onKeyPress={this.submitInputValue}/>
             <button className={`loginSelectorButton ${(this.isClickedAndLogged())?"goodLogin":""} ${(this.isClickedButNotLogged())?"wrongLogin":""}`} onClick={()=>this.validatePseudo()} onAnimationEnd={() => this.afterClick()}> Jouer </button>
         </div>
         );

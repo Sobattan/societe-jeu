@@ -3,40 +3,31 @@
   flex-direction : column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  overflow : hidden;
-  min-height: 100vh;
+.body{
+  width : 100%;
+  height : 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height : 90vh;
+  max-height : 90vh;
   max-width : 100vw;
-  max-height : 100vh;
+  position: relative;
+  overflow : hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.main{
+  background: rgb(67, 124, 144);
+  height:100%;
+  width : 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.main2{
+  background: rgb(141, 31, 4);
+  height:100%;
+  width : 100%;
 }
+
+
