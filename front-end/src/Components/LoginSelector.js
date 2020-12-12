@@ -43,7 +43,7 @@ class LoginSelector extends Component{
         return (
         <div className="loginSelectorComponent">
             <input className={`${(this.state.login!=="" && this.state.clicked)?"inputDisappear":""}`} type="text" value={this.state.login} onChange={(evt)=>this.loginChange(evt.target.value)} onKeyPress={this.submitInputValue}/>
-            <button className={`loginSelectorButton ${(this.isClickedAndLogged())?"goodLogin":""} ${(this.isClickedButNotLogged())?"wrongLogin":""}`} onClick={()=>this.validatePseudo()} onAnimationEnd={() => this.afterClick()}> Jouer </button>
+            <button className={`loginSelectorButton ${(this.isClickedAndLogged())?"goodLogin":""} ${(this.isClickedButNotLogged())?"wrongLogin":""}`} onClick={()=>this.validatePseudo()} onAnimationEnd={() => this.afterClick()}>{(this.isClickedAndLogged())?"":"Jouer"}</button>
         </div>
         );
     }
