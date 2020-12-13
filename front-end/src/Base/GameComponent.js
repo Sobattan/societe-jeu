@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { io } from 'socket.io-client';
+import Chat from '../Components/Chat';
 class Game extends Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            messagesList : []
+        };
         this.socket = undefined;
     }
     componentDidMount(){
@@ -16,6 +19,12 @@ class Game extends Component{
     leaveSalon(){
         this.socket.disconnect(true);
         this.socket = undefined;
+    }
+
+    addMsg(){
+        let tab = [].concat(this.state.messagesList);
+        tab.push({you:true,msg :"test"});
+        this.setState({messagesList : tab});
     }
 
     joinSalon(idSalon){
@@ -31,16 +40,26 @@ class Game extends Component{
         this.socket.emit('joinSalon',this.props.login,idSalon);
     }
 
+    sendMessage(msg){
+        let tab = [].concat(this.state.messagesList);
+        tab.push({login : this.props.login, msg : msg, you : true});
+        this.socket.emit('sendMsg',msg);
+        this.setState({messagesList : tab});
+    }
+
     declareOnMessageEvent(){
         this.socket.on('messageRecu',(pseudo,msg)=>{
-            this.state.msgList.push({pseudo : pseudo, msg : msg, you : false});
-            this.setState({msgList : this.state.msgList});
+            this.state.messagesList.push({pseudo : pseudo, msg : msg, you : false});
+            this.setState({messagesList : this.state.messagesList});
         })
     }
 
     render(){
         return (
-            <div className="body"><div style={{backgroundColor : this.props.color}} className="main"></div></div>);
+            <div className="body">
+                <div style={{backgroundColor : this.props.color}} className="main"></div>
+                <Chat messagesList={this.state.messagesList} sendMessage={(msg)=>this.sendMessage(msg)}/>
+            </div>);
     }
   }
   
