@@ -15,32 +15,12 @@
     width: 100vw;
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     overflow: hidden;
 }
 
 .Nomdusite
 {
-    font-size: 13vh;
-    margin-left: 5%;
-}
-
-.Startbutton
-{
-    font-size: 5vh;
-    background-color: rgba(128, 128, 128, 0.774);
-    border-radius: 50%;
-    border: none;
-    cursor:pointer;
-    margin-right: 13%;
-    height: 20vh;
-    width: 20vh;
-}
-
-.Pseudo
-{
-    background-color: white;
-    height: 4vh;
-    width: 20vh;
-    font-size: 3vh;
+    font-size: 12vh;
+    margin-left: 4%;
 }

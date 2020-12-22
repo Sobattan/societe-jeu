@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import React, {Component} from 'react';
 import '../styles/Home.css';
 import anime from 'animejs';
+import LoginSelector from "../Components/LoginSelector";
 
 class Home extends Component
 {
@@ -45,10 +46,7 @@ class Home extends Component
                     <div className='Nomdusite'>
                         La Société du jeu
                     </div>
-                    <input className='Pseudo' type='text' placeholder="pseudo"/>
-                    <button className='Startbutton'>
-                        JOUER
-                    </button>
+                    <LoginSelector/>
                 </div>
             </div>
         )
