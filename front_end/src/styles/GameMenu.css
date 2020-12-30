@@ -1,0 +1,26 @@
+.Home
+{
+    background-image: url('../images/font2.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: fantasy;
+}
+
+.Bande
+{
+    background-color: rgb(167, 229, 248);
+    height: 25vh;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.Nomdusite
+{
+    font-size: 13vh;
+    margin-left: 5%;
+}

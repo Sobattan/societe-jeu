@@ -1,0 +1,31 @@
+.Head
+{
+    background-image: url('../images/font2.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    font-family: fantasy;
+}
+
+.Bande
+{
+    background-color: rgb(167, 229, 248);
+    height: 5vh;
+    width: 100vw;
+    align-items:center;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.HomeButton
+{
+    font-size: 3vh;
+    background: none;
+    border: none;
+}
+
+.DonateButton
+{
+    margin-right: 1vw;
+}

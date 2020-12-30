@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React, {Component} from 'react';
 import '../styles/Home.css';
 import anime from 'animejs';
@@ -46,7 +45,10 @@ class Home extends Component
                     <div className='Nomdusite'>
                         La Société du jeu
                     </div>
-                    <LoginSelector/>
+                    <input className='Pseudo' type='text' placeholder="pseudo"/>
+                    <button className="Startbutton">
+                        Jouer
+                    </button>
                 </div>
             </div>
         )

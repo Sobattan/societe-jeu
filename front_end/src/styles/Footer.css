@@ -1,0 +1,24 @@
+.Bande
+{
+    background: none;
+    height: 5vh;
+    width: 100vw;
+    align-items:center;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+}
+
+.HomeButton
+{
+    font-size: 3vh;
+    background: none;
+    border: none;
+}
+
+.DonateButton
+{
+    margin-right: 1vw;
+}
